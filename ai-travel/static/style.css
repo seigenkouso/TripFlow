@@ -1,0 +1,287 @@
+:root {
+    /* --- n-buna 风格配色 --- */
+    --primary-color: #4facfe;      
+    --primary-hover: #00f2fe;      
+    --glass-bg: rgba(255, 255, 255, 0.50); 
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-blur: 20px;
+    --text-main: #2c3e50;          
+    --text-sub: #333333;           
+    --shadow-soft: 0 15px 35px rgba(0, 50, 100, 0.15); 
+    --radius: 24px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Noto Sans SC', sans-serif; }
+
+body {
+    background-image: url('background.png'); 
+    background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;
+    color: var(--text-main); min-height: 100vh; position: relative; overflow-x: hidden;
+}
+
+/* 导航栏 */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 8%;
+    background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); text-decoration: none; display: flex; align-items: center; }
+.logo i { margin-right: 8px; }
+.nav-links { display: flex; align-items: center; gap: 15px; }
+
+/* 登录/注册 双按钮样式 */
+.user-actions { display: flex; gap: 12px; }
+
+.btn-glass-login {
+    background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5); color: var(--text-main);
+    padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: 0.3s;
+}
+.btn-glass-login:hover { background: rgba(255, 255, 255, 0.5); transform: translateY(-2px); }
+
+.btn-glass-register {
+    background: rgba(79, 172, 254, 0.75); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(79, 172, 254, 0.3); color: white;
+    padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+}
+.btn-glass-register:hover { background: rgba(79, 172, 254, 0.9); transform: translateY(-2px); }
+
+/* 通用按钮 */
+.btn-text { background: none; border: none; color: var(--text-sub); cursor: pointer; padding: 5px 10px; font-weight: 500; }
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6); padding: 0.5rem 1.2rem; border-radius: 12px;
+    cursor: pointer; color: var(--text-main); font-weight: 600; display: flex; align-items: center; gap: 6px; transition: 0.2s;
+}
+.btn-secondary:hover { background: rgba(255, 255, 255, 0.8); border-color: var(--primary-color); color: var(--primary-color); }
+.btn-submit {
+    width: 100%; padding: 1.2rem; margin-top: 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), #2980b9); color: white;
+    border: none; border-radius: 16px; font-size: 1.15rem; font-weight: 700; cursor: pointer;
+    display: flex; justify-content: center; align-items: center; gap: 10px; transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(41, 128, 185, 0.3);
+}
+.btn-submit:hover { transform: scale(1.02); box-shadow: 0 15px 30px rgba(41, 128, 185, 0.4); }
+
+/* 布局与磨砂卡片 */
+.container { max-width: 800px; margin: 4rem auto; padding: 0 20px 5rem 20px; }
+.glass-effect {
+    background: var(--glass-bg); backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+    border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 3rem;
+    box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.header-text h1 { 
+    font-size: 2.2rem; margin-bottom: 0.8rem; color: var(--text-main);
+    background: linear-gradient(120deg, var(--primary-color), #2980b9);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;
+}
+.header-text p { color: var(--text-sub); margin-bottom: 2.5rem; font-size: 1.1rem; font-weight: 500; }
+
+/* 表单 */
+.form-row { display: flex; gap: 20px; }
+.form-group { margin-bottom: 1.8rem; flex: 1; }
+.form-group label { display: block; margin-bottom: 0.8rem; color: var(--text-main); font-weight: 700; }
+input {
+    width: 100%; padding: 14px 18px; border: 1px solid rgba(255,255,255,0.5); border-radius: 16px;
+    background: rgba(255, 255, 255, 0.9); font-size: 1rem; color: var(--text-main); transition: 0.3s;
+}
+input:focus { outline: none; background: #fff; border-color: var(--primary-color); box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.2); }
+.tags-container { display: flex; flex-wrap: wrap; gap: 12px; }
+.tag {
+    padding: 10px 22px; background: rgba(255,255,255,0.5); border-radius: 50px; color: var(--text-sub); cursor: pointer;
+    border: 1px solid transparent; transition: 0.3s; font-weight: 600;
+}
+.tag:hover { background: white; color: var(--primary-color); transform: translateY(-2px); }
+.tag.active { background: var(--primary-color); color: white; box-shadow: 0 6px 15px rgba(79, 172, 254, 0.4); }
+
+/* 结果页 */
+.result-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 20px; }
+.actions { display: flex; gap: 15px; }
+.timeline-item {
+    background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px; padding: 1.8rem; margin-bottom: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 5px solid var(--primary-color); transition: 0.3s;
+}
+.timeline-item:hover { transform: translateY(-4px); background: rgba(255, 255, 255, 0.6); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+.spot-header { display: flex; justify-content: space-between; margin-bottom: 0.8rem; }
+.spot-name { font-size: 1.3rem; font-weight: 800; color: #2c3e50; }
+.spot-time { background: #e1f5fe; color: #0277bd; padding: 4px 12px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; }
+.spot-reason { font-size: 0.9rem; color: #5c6bc0; margin-bottom: 1rem; background: rgba(232, 234, 246, 0.5); padding: 6px 12px; border-radius: 8px; display: inline-block; }
+.spot-desc { color: #333; line-height: 1.7; text-align: justify; }
+
+/* 弹窗优化 */
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: center; z-index: 2000; backdrop-filter: blur(5px); }
+.modal-content {
+    width: 450px; padding: 3rem 2.5rem; position: relative;
+    background: rgba(255, 255, 255, 0.9); border-radius: 24px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.15); border: 1px solid rgba(255, 255, 255, 0.8);
+}
+.close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; cursor: pointer; color: #666; }
+.code-input-group { display: flex; gap: 10px; }
+.code-input-group input { flex: 1; }
+#btn-send-code {
+    white-space: nowrap; padding: 0 15px; background: transparent; border: 1px solid var(--primary-color);
+    color: var(--primary-color); border-radius: 12px; cursor: pointer; font-size: 0.9rem; transition: 0.3s;
+}
+#btn-send-code:hover { background: var(--primary-color); color: white; }
+#btn-send-code:disabled { border-color: #ccc; color: #999; background: #f5f5f5; cursor: not-allowed; }
+
+/* 侧边栏 */
+.sidebar {
+    position: fixed; top: 0; right: -350px; width: 320px; height: 100%;
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: -5px 0 25px rgba(0,0,0,0.1); z-index: 1500; transition: right 0.3s ease; display: flex; flex-direction: column;
+}
+.sidebar.open { right: 0; }
+.sidebar-header { padding: 20px; border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
+.sidebar-content { flex: 1; overflow-y: auto; padding: 15px; }
+.history-card { background: rgba(255,255,255,0.6); border: 1px solid white; padding: 15px; border-radius: 12px; margin-bottom: 12px; cursor: pointer; transition: 0.2s; }
+.history-card:hover { background: white; transform: translateX(-3px); }
+.history-city { font-weight: bold; }
+.history-date { font-size: 0.8rem; color: #888; margin-top: 4px; display: flex; justify-content: space-between; }
+.overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 1400; }
+.hidden { display: none !important; }
+
+.result-title-card {
+    background: rgba(255, 255, 255, 0.6); /* 稍微透明一点 */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px; /* 圆角大一点 */
+    padding: 1rem 2rem;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1); /* 增加一点柔和的阴影 */
+    display: inline-block; /* 让卡片包裹文字 */
+    margin-bottom: 1rem; /* 与下方内容拉开距离 */
+}
+
+.result-title-card h2 {
+    margin: 0; /* 去掉默认边距 */
+    font-size: 1.8rem;
+    background: linear-gradient(120deg, var(--text-main), var(--primary-color)); /* 文字渐变 */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/* 2. 每天日期标题卡片 (Day 1, Day 2...) */
+.day-header-card {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+/* 调整原有的 day-header 样式以适应新卡片 */
+.day-header {
+    margin-bottom: 0; /* 去掉原有边距，由卡片控制 */
+}
+
+/* --- 🆕 优化：按钮组容器样式 --- */
+.result-header .actions {
+    /* 给按钮组也加一个淡淡的磨砂底座，更有整体感 */
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    padding: 0.8rem;
+    display: flex;
+    gap: 12px;
+}
+
+/* 微调按钮间距，使其在底座中更协调 */
+.result-header .btn-secondary {
+    margin: 0; 
+    padding: 0.6rem 1.2rem; /* 稍微调整按钮内边距 */
+}
+
+/* --- 🆕 优化：加载中提示 (磨砂胶囊 + 图标完美居中) --- */
+#loading-section {
+    /* 1. 自身定位：水平居中 */
+    margin: 2rem auto; 
+    width: fit-content; /* 宽度随内容撑开 */
+    min-width: 220px;   /* 设置最小宽度，防止胶囊太短 */
+    
+    /* 2. 磨砂外观 */
+    background: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    padding: 0.8rem 2.5rem; /* 增加左右内边距 */
+    
+    /* 3. 文字与阴影 */
+    box-shadow: 0 10px 30px rgba(79, 172, 254, 0.2);
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.1rem;
+    
+    /* 4. 默认隐藏 */
+    display: none;
+}
+
+/* 当显示时：激活 Flex 布局，保证内部元素居中对齐 */
+#loading-section:not(.hidden) {
+    display: flex !important;
+    align-items: center;     /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    gap: 12px;               /* 图标和文字的间距 */
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* 简单的弹跳出现动画 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* 调整原来的 loader 大小，使其适配胶囊条 */
+.loader {
+    width: 24px;
+    height: 24px;
+    border-width: 3px;
+    margin: 0; /* 去掉之前的 margin */
+    border-color: rgba(79, 172, 254, 0.3);
+    border-top-color: var(--primary-color);
+}
+
+/* --- 🆕 优化：行程日期标题 (Day 1...) --- */
+.day-title {
+    font-size: 1.5rem; /* 字号加大 */
+    font-weight: 800;  /* 字重加粗，变成真正的标题 */
+    color: var(--text-main);
+    letter-spacing: 0.5px;
+    margin-left: 5px;
+    
+    /* 可选：给标题加一点点渐变，更有质感 */
+    background: linear-gradient(120deg, #2c3e50, #4facfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 调整 Day Badge (Day 1 那个胶囊标签) 使其与大标题更协调 */
+.day-badge {
+    background: var(--primary-color);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(79, 172, 254, 0.4);
+    flex-shrink: 0; /* 防止标题太长时把 badge 挤扁 */
+}
+
+/* 简单的淡入动画 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

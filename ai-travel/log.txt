@@ -1,0 +1,109 @@
+nohup: ignoring input
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://10.0.0.3:80
+Press CTRL+C to quit
+/home/ubuntu/ai-travel/app.py:82: LegacyAPIWarning: The Query.get() method is considered legacy as of the 1.x series of SQLAlchemy and becomes a legacy construct in 2.0. The method is now available as Session.get() (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  return User.query.get(int(user_id))
+42.49.147.84 - - [04/Feb/2026 17:53:50] "GET / HTTP/1.1" 200 -
+42.49.147.84 - - [04/Feb/2026 17:53:51] "GET /static/script.js?v=2 HTTP/1.1" 200 -
+42.49.147.84 - - [04/Feb/2026 17:53:51] "GET /static/style.css HTTP/1.1" 200 -
+42.49.147.84 - - [04/Feb/2026 17:53:51] "GET /static/background.png HTTP/1.1" 304 -
+42.49.147.84 - - [04/Feb/2026 17:53:51] "GET /api/current_user HTTP/1.1" 200 -
+
+=== AI 原始回复开始 ===
+{
+    "title": "大阪3日游",
+    "days": [
+        {
+            "day_title": "第一天：自然与历史的交融",
+            "spots": [
+                {
+                    "name": "大阪城公园",
+                    "time": "上午9:00 - 12:00",
+                    "reason": "这里有大片的绿地、古老的城堡建筑，能同时满足对自然风光和人文历史的需求，且景色优美适合拍照。",
+                    "description": "大阪城公园规模宏大，园内除了大阪城主体建筑外，还有西之丸庭园等景观。大阪城是大阪的地标性建筑，见证了日本的历史变迁。公园内樱花季时樱花盛开美不胜收，其他季节绿树成荫也别有一番风味。"
+                },
+                {
+                    "name": "大阪历史博物馆",
+                    "time": "下午13:00 - 15:00",
+                    "reason": "深入了解大阪的历史发展，馆内有很多文物和资料展示，是人文历史的宝藏地。",
+                    "description": "博物馆通过各种展品、模型、影像等方式展现大阪从古至今的历史进程，从古代的聚落形成到现代的大都市发展，在这里可以感受到浓厚的历史氛围。"
+                },
+                {
+                    "name": "道顿堀",
+                    "time": "下午16:00 - 19:00",
+                    "reason": "品尝地道美食的同时感受大阪热闹的市井文化，街道的建筑色彩鲜艳非常适合拍照。",
+                    "description": "道顿堀是大阪美食的集中地，有各种招牌林立，如著名的格力高广告牌。这里可以品尝到章鱼烧、大阪烧、炸串等特色美食，街道上人群熙熙攘攘，充满了活力。"
+                }
+            ]
+        },
+        {
+            "day_title": "第二天：自然探索与美食之旅",
+            "spots": [
+                {
+                    "name": "万博纪念公园",
+                    "time": "上午9:00 - 12:00",
+                    "reason": "拥有广阔的自然空间，包括大片的草坪、湖泊和树林，风景宜人适合拍照，同时公园也具有一定的纪念意义。",
+                    "description": "万博纪念公园是为举办1970年大阪世博会而建的，园内有众多国家的展馆建筑遗迹。自然景观方面，大片的绿地可以供游客散步休闲，湖泊清澈，还能看到很多鸟类。"
+                },
+                {
+                    "name": "黑门市场",
+                    "time": "下午13:00 - 15:00",
+                    "reason": "品尝新鲜的海鲜和各种特色小吃，体验大阪的饮食文化。",
+                    "description": "黑门市场被誉为大阪的厨房，这里有新鲜的海鱼、虾、蟹等各种海鲜可以现场品尝加工。此外还有水果、甜品、传统小吃等琳琅满目的美食。"
+                },
+                {
+                    "name": "四天王寺",
+                    "time": "下午16:00 - 18:00",
+                    "reason": "作为日本最古老的官家寺院，具有深厚的人文历史底蕴，寺庙建筑风格独特适合拍照。",
+                    "description": "四天王寺是日本飞鸟时代的代表性寺院，寺内的五重塔、金堂等建筑古朴典雅，庭院布局规整，展现了日本古代建筑艺术的高超水准。"
+                }
+            ]
+        },
+        {
+            "day_title": "第三天：人文与美食的收官之旅",
+            "spots": [
+                {
+                    "name": "梅田蓝天大厦空中庭院展望台",
+                    "time": "上午9:00 - 11:00",
+                    "reason": "可以俯瞰大阪的城市美景，是拍照的好去处，同时大厦本身也是现代建筑的代表具有一定的人文意义。",
+                    "description": "梅田蓝天大厦的空中庭院展望台提供了360度无死角的城市观景视野，能将大阪的高楼大厦、街道尽收眼底。大厦独特的建筑造型和透明的空中庭院让人眼前一亮。"
+                },
+                {
+                    "name": "难波公园",
+                    "time": "下午13:00 - 15:00",
+                    "reason": "集购物、美食、休闲于一体，建筑与自然景观相结合，有很多适合拍照打卡的背景。",
+                    "description": "难波公园的建筑设计独特，它打造了一个室内的绿色空间，有各种商店、餐厅。从远处看，建筑的阶梯状外观和大片的绿植相互映衬非常美观。"
+                },
+                {
+                    "name": "心斋桥",
+                    "time": "下午16:00 - 19:00",
+                    "reason": "在大阪最繁华的商业街购买特色纪念品，品尝街头美食，感受大阪的热闹氛围并且拍照很出片。",
+                    "description": "心斋桥是大阪著名的购物街，街道两旁有各种时尚的店铺、药妆店等。这里还有很多街头小吃摊位，如可丽饼等，街道上人群穿梭，霓虹灯闪烁，充满了现代都市的魅力。"
+                }
+            ]
+        }
+    ]
+}
+=== AI 原始回复结束 ===
+
+✅ 新行程已保存，ID: 6
+42.49.147.84 - - [04/Feb/2026 17:54:51] "POST /api/generate HTTP/1.1" 200 -
+/home/ubuntu/ai-travel/app.py:179: LegacyAPIWarning: The Query.get() method is considered legacy as of the 1.x series of SQLAlchemy and becomes a legacy construct in 2.0. The method is now available as Session.get() (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  item = Itinerary.query.get(itinerary_id)
+42.49.147.84 - - [04/Feb/2026 17:55:15] "POST /api/bookmark/6 HTTP/1.1" 200 -
+42.49.147.84 - - [04/Feb/2026 17:55:18] "GET /api/saved_list HTTP/1.1" 200 -
+42.49.147.84 - - [04/Feb/2026 17:55:27] "GET /api/saved_list HTTP/1.1" 200 -
+42.49.147.84 - - [04/Feb/2026 17:57:57] "GET /api/saved_list HTTP/1.1" 200 -
+42.49.147.84 - - [04/Feb/2026 17:57:59] "GET /api/history HTTP/1.1" 200 -
+42.49.147.84 - - [04/Feb/2026 17:58:01] "GET /api/saved_list HTTP/1.1" 200 -
+101.32.15.141 - - [04/Feb/2026 18:16:14] "GET / HTTP/1.1" 200 -
+47.237.177.222 - - [04/Feb/2026 18:29:13] "GET http://passport.baidu.com/ HTTP/1.1" 200 -
+47.237.177.222 - - [04/Feb/2026 18:29:56] code 400, message Bad request syntax ('\x04\x01\x00Pg)§ê\x00')
+47.237.177.222 - - [04/Feb/2026 18:29:56] "\x04\x01\x00Pg)§ê\x00" HTTPStatus.BAD_REQUEST -
+47.237.177.222 - - [04/Feb/2026 18:30:12] code 400, message Bad request syntax ('\x05\x01\x00')
+47.237.177.222 - - [04/Feb/2026 18:30:12] "\x05\x01\x00" HTTPStatus.BAD_REQUEST -

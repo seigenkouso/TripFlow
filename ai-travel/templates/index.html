@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripFlow | AI 智能行程规划</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-shape shape-1"></div>
+    <div class="background-shape shape-2"></div>
+    <div class="background-shape shape-3"></div>
+
+    <nav class="navbar">
+        <a href="#" class="logo"><i class="fas fa-paper-plane"></i> TripFlow</a>
+        
+        <div class="nav-links">
+            <div id="guest-area" class="user-actions">
+                <button class="btn-glass-login" onclick="openAuth('login')">登录</button>
+                <button class="btn-glass-register" onclick="openAuth('register')">注册</button>
+            </div>
+
+            <div id="user-area" class="hidden" style="display: flex; align-items: center; gap: 15px;">
+                <span id="welcome-msg" style="font-size: 0.9rem; font-weight: bold; color: var(--primary-color);"></span>
+                
+                <button class="btn-secondary" onclick="toggleSaved()">
+                    <i class="fas fa-heart" style="color: #ff6b6b;"></i> 我的保存
+                </button>
+
+                <button class="btn-secondary" onclick="toggleHistory()">
+                    <i class="fas fa-history"></i> 历史记录
+                </button>
+                <button class="btn-text" onclick="logout()" style="margin:0; font-size: 0.9rem;">退出</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="input-section">
+            <div class="glass-effect form-card">
+                <div class="header-text" style="margin-bottom: 2rem; padding-left: 10px;">
+                    <h1>去哪里追逐夏天？</h1>
+                    <p>输入目的地，AI 为你编织一段顺路的旅程。</p>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-map-marker-alt"></i> 目的地</label>
+                    <input type="text" id="city" placeholder="例如：上海、京都、洛杉矶">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="far fa-calendar-alt"></i> 游玩天数</label>
+                        <input type="number" id="days" value="3" min="1" max="15">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="far fa-clock"></i> 出发日期</label>
+                        <input type="text" class="date-input" placeholder=" 年 / 月 / 日 " onfocus="(this.type='date')" onblur="(this.type='text')">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-sliders"></i> 偏好风格（可多选）</label>
+                    <div class="tags-container" id="preferences">
+                        <div class="tag" onclick="toggleTag(this)">🌿 自然风光</div>
+                        <div class="tag" onclick="toggleTag(this)">🌸 人文历史</div>
+                        <div class="tag" onclick="toggleTag(this)">🍜 地道美食</div>
+                        <div class="tag" onclick="toggleTag(this)">🟣 轻松节奏</div>
+                        <div class="tag" onclick="toggleTag(this)">📷 适合拍照</div>
+                        <div class="tag" onclick="toggleTag(this)">🛍️ 购物血拼</div>
+                    </div>
+                </div>
+                <button class="btn-submit" onclick="generateItinerary()">
+                    生成行程 <i class="fas fa-magic"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="loading-section" class="hidden">
+            <i class="fas fa-compass fa-spin" style="font-size: 1.5rem;"></i>
+            <span>正在规划最佳路线...</span>
+        </div>
+
+        <div id="result-section" class="hidden">
+            <div style="height: 3rem;"></div> 
+            <div class="result-header">
+                <div class="result-title-card">
+                    <h2 id="result-title">🗓️ 行程安排</h2>
+                </div>
+                <div class="actions">
+                    <button class="btn-secondary" onclick="addToSaved()">
+                        <i class="far fa-heart"></i> 收藏行程
+                    </button>
+                    <button class="btn-secondary" onclick="showInput()">
+                        <i class="fas fa-redo"></i> 重新规划
+                    </button>
+                </div>
+            </div>
+            <div id="timeline-container"></div>
+        </div>
+    </div> 
+
+    <div id="auth-modal" class="modal hidden">
+        <div class="modal-content glass-effect">
+            <span class="close-modal" onclick="closeAuthModal()">×</span>
+            <h2 style="text-align: center; margin-bottom: 25px; color: var(--text-main);">登录 / 注册</h2>
+            <div class="form-group"><label>邮箱地址</label><input type="email" id="auth-email" placeholder="name@example.com"></div>
+            <div class="form-group">
+                <label>验证码</label>
+                <div class="code-input-group">
+                    <input type="text" id="auth-code" placeholder="6位数字">
+                    <button id="btn-send-code" onclick="sendVerificationCode()">获取验证码</button>
+                </div>
+            </div>
+            <button class="btn-submit" onclick="handleEmailLogin()" style="margin-top: 20px;">进入 TripFlow</button>
+        </div>
+    </div>
+
+    <div id="history-sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-history"></i> 所有历史记录</h3>
+            <span class="close-sidebar" onclick="toggleHistory()">×</span>
+        </div>
+        <div id="history-list" class="sidebar-content"></div>
+    </div>
+
+    <div id="saved-sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3 style="color: #ff6b6b;"><i class="fas fa-heart"></i> 我的精选收藏</h3>
+            <span class="close-sidebar" onclick="toggleSaved()">×</span>
+        </div>
+        <div id="saved-list" class="sidebar-content"></div>
+    </div>
+    
+    <div id="overlay" class="overlay hidden" onclick="closeSidebars()"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}?v=2"></script>
+</body>
+</html>
