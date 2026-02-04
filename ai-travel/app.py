@@ -21,10 +21,9 @@ app = Flask(__name__)
 # 2. 从环境变量读取 Flask 密钥 (如果没有则使用默认值 'dev_key')
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'dev_key_for_testing')
 
-# --- 📧 邮件配置 (Gmail) ---
-# 从环境变量读取配置，不再硬编码
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
+# --- 📧 邮件配置 (通用) ---
+app.config['MAIL_SERVER'] = os.environ.get('MAIL_SERVER', 'smtp.qq.com')
+app.config['MAIL_PORT'] = int(os.environ.get('MAIL_PORT', 465))
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
