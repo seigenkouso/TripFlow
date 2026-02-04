@@ -1,6 +1,6 @@
 # ✈️ TripFlow | AI 智能行程规划助手
 
-> 基于腾讯云混元大模型 (Hunyuan-Pro) 的全栈旅行规划应用。输入目的地与偏好，一键生成 "小红书风格" 的详细行程单。
+> 基于腾讯云混元大模型 (Hunyuan-Pro) 的全栈旅行规划应用。输入目的地与偏好，一键生成行程单。
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Flask](https://img.shields.io/badge/Flask-2.3%2B-green)
